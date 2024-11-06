@@ -211,8 +211,28 @@ printf("\n");
 
 void zad10()
 {
+    int i;
     int tab1[]={5,6,7,8,9,10,11,12};
     int tab2[]={15,20,25,30,35,40};
+    int tabw[12];
+    int wielkosc_tab1=8;
+    int wielkosc_tab2=6;
+    int wielkosc_tabw=12;
+    printf("tabela wynikowa ma wartosci:");
+    for(i=0;i<12;i++){
+        if(i<4){
+            tabw[i]=tab1[i]-tab2[wielkosc_tab2-(4-i)];
+
+        }
+        else if(i<8){
+            tabw[i]=tab1[i]*tab1[i-4];
+        }
+        else{
+            tabw[i]=tab2[i-8]+tab1[i-4];
+        }
+         printf(" %d",tabw[i]);
+    }
+
 }
 int main()
 {
@@ -224,6 +244,7 @@ int main()
     //zad6();
    // zad7();
    //zad8();
-   zad9();
+   //zad9();
+   zad10();
     return 0;
 }
