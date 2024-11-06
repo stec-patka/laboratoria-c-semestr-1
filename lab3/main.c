@@ -72,18 +72,19 @@ void zad4()
 void zad5()
 {
     int x,y=0;
-    for(;;){
     printf("podaj liczbe \n");
     scanf("%d",&x);
+    for(;;){
+
 
         if(x%2==0){
             x/=2;
             printf("wynik wynosi %d\n",x);
         }
-        if(x==1){
+        else if(x==1){
             break;
         }
-        if(x%2!=0){
+        else if(x%2!=0){
             x=x*3+1;
             printf("wynik wynosi %d\n",x);
         }
