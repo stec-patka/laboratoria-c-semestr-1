@@ -44,19 +44,20 @@ void zad2()
 
 void zad3()
 {
-    int a;
+    int normalna;
     printf("podaj liczbe ");
-    scanf("%d",&a);
-    int reversed = 0;
+    scanf("%d",&normalna);
+    int odwrocona = 0;
+    int tymczasowa = normalna;
 
-    // Reverse the digits of the integer
-    while (a != 0) {
-        int digit = a % 10; // Get the last digit
-        reversed = reversed * 10 + digit; // Add it to the reversed number
-        a = a / 10; // Remove the last digit from the original number
+    while (tymczasowa != 0) {
+        int ostatnia = tymczasowa % 10;
+        odwrocona = odwrocona * 10 + ostatnia;
+        tymczasowa = tymczasowa / 10;
     }
 
-    printf("Reversed number: %d\n", reversed);
+    printf("%d -> %d\n", normalna, odwrocona);
+    printf("%d + %d = %d", normalna, odwrocona, normalna+odwrocona);
 
 }
 
@@ -129,12 +130,12 @@ void zad5()
     }
 
 }
-}
+
 int main()
 {
     //zad1();
     //zad2();
-    //zad3();
-    zad4();
+    zad3();
+    //zad4();
     return 0;
 }
