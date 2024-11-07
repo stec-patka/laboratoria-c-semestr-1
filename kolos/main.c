@@ -24,21 +24,74 @@ void zad1()
 
 void zad2()
 {
+ int liczba,i,reszta,wynik;
+ printf("podaj liczbe ");
+ scanf("%d",&liczba);
 
+ for(;;){
+        if(liczba>0){
+    reszta=liczba%3;
+    wynik=liczba/3;
+    printf("%4d | %d\n",liczba,reszta);
+    liczba=wynik;
+        }
+        else if(liczba==0){
+                printf("%4d",liczba);
+            break;
+        }
+ }
 }
 
 void zad3()
 {
-    int liczba;
+    int a;
     printf("podaj liczbe ");
-    scanf("%d",&liczba);
+    scanf("%d",&a);
+    int reversed = 0;
+
+    // Reverse the digits of the integer
+    while (a != 0) {
+        int digit = a % 10; // Get the last digit
+        reversed = reversed * 10 + digit; // Add it to the reversed number
+        a = a / 10; // Remove the last digit from the original number
+    }
+
+    printf("Reversed number: %d\n", reversed);
 
 }
 
+void zad4()
+{
+    int i,tab[12],sumap_5=0,sumanp_3=0;
+    printf("podaj 12 liczb ");
+    for(i=0;i<12;i++){
+        scanf("%d",&tab[i]);
+    }
+    for(i=0;i<12;i++){
+        if(tab[i]%5==0){
+            sumap_5+=tab[i];
+        }
+         if(tab[i]%3!=0){
+            sumanp_3+=tab[i];
+        }
+    }
+
+    printf("po sumowaniu : %d\n",sumap_5);
+    printf("po odejmowaniu : %d",sumap_5-sumanp_3);
+
+}
+
+void zad5()
+{
+    int cena;
+    printf("podaj cene ");
+    scanf("%d",&cena);
+}
 int main()
 {
     //zad1();
     //zad2();
-    zad3();
+    //zad3();
+    zad4();
     return 0;
 }
