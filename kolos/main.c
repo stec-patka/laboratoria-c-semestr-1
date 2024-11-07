@@ -84,10 +84,6 @@ void zad4()
 
 void zad5()
 {
-    int cena;
-    printf("podaj cene ");
-    scanf("%d",&cena);
-
     int ilosc_cen=4;
     int ceny[ilosc_cen];
     float ceny_po_znizkach[ilosc_cen];
@@ -135,7 +131,8 @@ int main()
 {
     //zad1();
     //zad2();
-    zad3();
+    //zad3();
     //zad4();
+    zad5();
     return 0;
 }
