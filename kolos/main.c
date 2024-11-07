@@ -86,6 +86,49 @@ void zad5()
     int cena;
     printf("podaj cene ");
     scanf("%d",&cena);
+
+    int ilosc_cen=4;
+    int ceny[ilosc_cen];
+    float ceny_po_znizkach[ilosc_cen];
+    float znizki[] = {1.0, 0.75, 0.5, 0.2};
+    int temp,i,m, n;
+    int czy_nastapila_zamiana;
+
+    for(i=0;i<ilosc_cen;i++){
+        printf("podaj cene nr %d: ",i+1);
+        scanf("%d",&ceny[i]);
+    }
+
+    // Pętla wykonująca sortowanie
+    for ( i = 0; i < ilosc_cen - 1; i++) {
+        czy_nastapila_zamiana = 0;  // Zmienna do sprawdzenia, czy zaszła jakakolwiek zamiana
+
+        // Pętla do porównywania sąsiednich elementów
+        for ( m = 1; m < ilosc_cen - i; m++) {
+            if (ceny[m - 1] < ceny[m]) {
+                // Zamiana miejscami
+                temp = ceny[m - 1];
+                ceny[m - 1] = ceny[m];
+                ceny[m] = temp;
+                czy_nastapila_zamiana = 1;
+            }
+        }
+
+        // Jeśli w tym przejściu nie było żadnej zamiany, tablica jest już posortowana
+        if (!czy_nastapila_zamiana) {
+            break;
+        }
+    }
+
+    for(i=0;i<ilosc_cen;i++){
+        ceny_po_znizkach[i] = ceny[i] * znizki[i];
+    }
+
+    for(i=0;i<ilosc_cen;i++){
+        printf("%d -> %f \n",ceny[i], ceny_po_znizkach[i]);
+    }
+
+}
 }
 int main()
 {
