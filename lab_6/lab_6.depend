@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1733337934 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\lab_6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
