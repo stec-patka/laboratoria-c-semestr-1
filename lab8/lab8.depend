@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1733237942 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\lab8\main.c
+	<stdio.h>
+	<stdbool.h>
+
