@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1733770245 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\lab7\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <math.h>
 void zad1()
 {
     printf("nie bede przeszkadzac na lekcji");
@@ -89,6 +89,52 @@ int maksimum(int x, int y, int z)
    }
    return max;
 }
+
+
+void zad6(int m)
+{
+    int i;
+    for(i=0;i<m;i++){
+        printf("*");
+    }
+    printf("\n");
+}
+
+float zad7(float a, float S)
+{
+    return 0.5*(a+S/a);
+}
+
+float zad8(float prev, float next)
+{
+    float dz=next/prev;
+    printf("iloraz zmiennej next przez prev wynosi: %f\n",dz);
+return next;
+}
+
+void zad9(int n)
+{
+    static int licznik=0;
+    licznik++;
+    printf("wartosc n wynosi: %d, licznik wunosi: %d\n",n,licznik);
+    if (n==1){
+        return;
+    }
+    else if (n%2==0){
+        zad9(n/2);
+
+    }
+    else {
+        zad9(3*n+1);
+
+    }
+}
+
+void zad10(int n)
+{
+     printf("wartosc n wynosi: %d\n",n);
+     zad10(n+1);
+}
 int main()
 {
     int i;
@@ -104,15 +150,15 @@ int main()
   //for(i=0;i<10;i++){
    //zad3();}
 
-   //zad4
-   int a,b;
+   //zadanie4
+   //int a,b;
    //printf("podaj wymiary prostokata: ");
     //scanf("%d",&a);
    // scanf("%d",&b);
  //obwod_prostokata(a,b);
    //pole_prostokata(a,b);
 
-   //zad5();
+   //zadanie 5
    /*int x,y,z;
    printf("podaj trzy liczby: ");
    scanf("%d",&x);
@@ -121,11 +167,54 @@ int main()
     printf("minimum wynosi: %d\n",minimum(x,y,z));
     printf("maksimum wynosi: %d\n",maksimum(x,y,z));
 */
+//zadanie 6
+/*int m;
 
-   //zad6();
-   //zad7();
-   //zad8();
-   //zad9();
-   //zad10();
-    return 0;
+for(;;){
+printf("podaj ilczbe: ");
+scanf("%d",&m);
+if (m<0){
+    printf("liczba ujemna");
+    break;
+}
+   zad6(m);}
+*/
+   //zadanie 7
+  /* float a,S;
+   printf("podaj ilczbe: ");
+   scanf("%f",&S);
+
+   a=S;
+   for(i=0;i<10;i++)
+   {
+       a=zad7(a,S);
+       printf("iteracja nr %d: a=%.10f\n",i+1,a);
+  }
+   float pierw=sqrt(S);
+   printf("pierwiastek z S za pomoca funkcji wynosi %f\n",pierw);
+  */
+
+  //zadanie 8
+  float prev, next;
+   printf("podaj liczbe: \n");
+  scanf("%f",&prev);
+   printf("podaj liczbe: \n");
+  scanf("%f",&next);
+  for(i=0;i<20;i++){
+    float temp=zad8(prev,next);
+
+    next=prev+next;
+    prev=temp;
+  }
+  //zad8();
+  //zadanie 9
+  /*int n;
+  printf("podaj liczbe: \n");
+  scanf("%d",&n);
+  zad9(n); */
+
+  //zadanie 10
+  /*int n=0;
+   zad10(n);
+    return 0;*/
 }
