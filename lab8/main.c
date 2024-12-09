@@ -65,10 +65,48 @@ printf("%d %d  \n", ptr_h, sizeof( h ));
 
 }
 
+void zad3()
+{
+    int x;
+    int *a, *b, *c, *d, *e;
+
+    e=&x;
+    d=e;
+    c=d;
+    b=c;
+    a=b;
+
+    *a=6;
+    printf("x wynosi: %d",x);
+}
 
 
+void zad4()
+{
+    int i;
+    int tab[20];
+    for(i=0;i<20;i++){
+        tab[i]=i+1;
+        printf("%d",tab[i]);
+    }
+    printf("\n");
 
+    int *x=&tab[4];
+    int *y=&tab[9];
+    int *z=&tab[14];
+    *x *=100;
+    *y +=50;
+    *z *= -1;
 
+    for(i=0;i<20;i++){
+        printf("%d",tab[i]);
+    }
+}
+
+void zad5()
+{
+    int tab[6][8];
+}
 
 
 
@@ -77,6 +115,9 @@ printf("%d %d  \n", ptr_h, sizeof( h ));
 int main()
 {
     //zad1();
-    zad2();
+    //zad2();
+    //zad3();
+    zad4();
+   // zad5();
     return 0;
 }
