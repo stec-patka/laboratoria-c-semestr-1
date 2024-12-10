@@ -105,7 +105,19 @@ void zad4()
 
 void zad5()
 {
+    int i,j;
     int tab[6][8];
+    int *wsk=&tab[0][0];
+    for(i=0;i<48;i++){
+        *(wsk+i)=i+1;
+
+    }
+    for(i=0;i<6;i++){
+        for(j=0;j<8;j++){
+            printf("%4d",tab[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 
@@ -117,7 +129,7 @@ int main()
     //zad1();
     //zad2();
     //zad3();
-    zad4();
-   // zad5();
+    //zad4();
+    zad5();
     return 0;
 }
