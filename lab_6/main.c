@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 #define W 8
 #define K 12
 void zad1()
@@ -440,7 +441,37 @@ printf("\n");
 }
 void zad9()
 {
+    int i,j,w,r;
+char tab[3][3];
+for(i=0;i<3;i++){
+    for(j=0;j<3;j++){
+        tab[i][j]='-';
+    }
+}
 
+bool kolko=true;
+while (1)
+{
+    for(i=0;i<3;i++){
+    for(j=0;j<3;j++){
+        printf("%3c ",tab[i][j]);
+    }
+    printf("\n");
+
+}
+printf("gdzie wstawic");
+scanf("%d",&w);
+printf("gdzie wstawic");
+scanf("%d",&r);
+if(kolko){
+    tab[w][r]='O';
+    kolko=false;
+}
+else{
+        tab[w][r]='X';
+    kolko=true;
+}
+}
 }
 
 
@@ -458,8 +489,8 @@ int main()
    //zad5_2();
    //zad6();
    //zad7();
-   zad8();
-  // zad9();
+  // zad8();
+   zad9();
   // zad10();
     return 0;
 }
