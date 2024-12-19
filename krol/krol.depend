@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1734552114 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\krol\main.c
+1734593317 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\krol\main.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
 

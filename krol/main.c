@@ -13,6 +13,16 @@ void odwracanie(int *tab,int N)
         tab[N-i-1]=temp;
     }
 }
+
+void reverseArray(int* tab, int n) {
+    int i;
+    for ( i = 0; i < n / 2; i++) {
+        int temp = *(tab + i);
+        *(tab + i) = *(tab + n - i - 1);
+        *(tab + n - i - 1) = temp;
+    }
+}
+
 void odwracanie_m()
 {
     int i;
@@ -24,14 +34,16 @@ void odwracanie_m()
     printf("%d ",tab[i]);
    }
    printf("\n");
-
-   odwracanie(tab,N);
+reverseArray(tab,N);
+   //odwracanie(tab,N);
     printf("po odwroceniu: ");
    for (i=0;i<N;i++){
     printf("%d ",tab[i]);
    }
    printf("\n");
 }
+
+
 void srednia(int *tab)
 {
   int i,suma=0;
@@ -39,6 +51,15 @@ void srednia(int *tab)
     suma+=tab[i];
   }
   printf("stednia wynosi: %f",(float)suma/5);
+}
+
+float mean(int* x, int n) {
+    int s = 0;
+    int i;
+    for ( i = 0; i < n; i++) {
+        s += *x++;
+    }
+    return s / (float)n;
 }
 
 void srednia_m()
@@ -62,9 +83,29 @@ void min_max(int *tab,int *min, int *max,int n)
             *max=tab[i];
         }
     }
-    printf("wartosc min: %d, watrosc max: %d",*min,*max);
+    printf("wartosc min: %d, watrosc max: %d \n",*min,*max);
 
 }
+
+void findMinMax(int* tab,  int* min, int* max ,int n) {
+    if (n <= 0) {
+        *min = 0;
+        *max = 0;
+        return;
+    }
+
+    *min = *tab;
+    *max = *tab;
+
+    int i;
+    for (i = 0; i < n; i++) {
+        int value = *tab++;
+        if (value < *min) *min = value;
+        if (value > *max) *max = value;
+    }
+    printf("wartosc min: %d, watrosc max: %d",*min,*max);
+}
+
 
 void min_max_m()
 {
@@ -82,6 +123,7 @@ void min_max_m()
    printf("\n");
 
    min_max(tab,&min,&max,n);
+   findMinMax(tab,&min,&max,n);
 }
 int main()
 {
