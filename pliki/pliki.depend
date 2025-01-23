@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1737639040 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\pliki\main.c
+	<stdio.h>
+	<stdlib.h>
+	"zadanie1.h"
+	"zadanie2.h"
+	"zadanie3.h"
+	"zadanie4.h"
+
+1737638671 c:\users\patrysia\documents\github\laboratoria-c-semestr-1\pliki\zadanie1.h
+
+1737639034 c:\users\patrysia\documents\github\laboratoria-c-semestr-1\pliki\zadanie2.h
+
+1737639036 c:\users\patrysia\documents\github\laboratoria-c-semestr-1\pliki\zadanie3.h
+
+1737639038 c:\users\patrysia\documents\github\laboratoria-c-semestr-1\pliki\zadanie4.h
+
+1737639200 source:c:\users\patrysia\documents\github\laboratoria-c-semestr-1\pliki\zadanie1.c
+	<stdio.h>
+	<string.h>
+	"zadanie1.h"
+

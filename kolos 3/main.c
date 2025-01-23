@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "zadanie1.h"
 
 #define BUFFER_SIZE 100
 
@@ -15,53 +16,7 @@ int liczZnaki(const char *tekst) {
     return licznik;
 }
 
-void zadanie1() {
-    char bufor[BUFFER_SIZE];
-    char znak1, znak2;
-    int indeks,i;
-
-    printf("Podaj pierwszy znak: ");
-    scanf(" %c", &znak1);
-    printf("Podaj drugi znak: ");
-    scanf(" %c", &znak2);
-    printf("Podaj liczbe calkowita dodatnia: ");
-    scanf("%d", &indeks);
-
-    printf("Podaj zdanie (maksymalnie 100 znakow): ");
-    getchar();
-    fgets(bufor, BUFFER_SIZE, stdin);
-
-
-    size_t dlugosc = strlen(bufor);
-    if (bufor[dlugosc - 1] == '\n') {
-        bufor[dlugosc - 1] = '\0';
-    }
-
-
-    int liczbaZnakow = liczZnaki(bufor);
-    printf("Liczba znakow w tekscie: %d\n", liczbaZnakow);
-
-
-    if (indeks < liczbaZnakow) {
-        bufor[indeks] = '?';
-    }
-
-    for ( i = 0; i < liczbaZnakow; i++) {
-        if (bufor[i] == znak2) {
-            bufor[i] = znak1;
-        }
-    }
-
-    for ( i = 0; i < liczbaZnakow; i++) {
-        if (bufor[i] == '_') {
-            bufor[i] = ' ';
-        }
-    }
-
-    printf("Przetworzony tekst: %s\n", bufor);
-
-    return 0;
-}
+void zadanie1();
 
 
 
@@ -316,11 +271,11 @@ void zadanie5(){
 
 int main()
 {
-    //zadanie1();
+    zadanie1();
     //zadanie2();
    // zadanie3();
    // zadanie4();
-    zadanie5();
+    //zadanie5();
 
     return 0;
 }
