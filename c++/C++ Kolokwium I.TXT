@@ -287,7 +287,22 @@ z=kopiowany.z;
 
 
 
+std::istream& operator>>(std::istream& is, Wektor& w) {
+      double nowy_elem;
+    is >> nowy_elem;
 
+    double* nowa_tablica = new double[w.size() + 1];
+    for (size_t i = 0; i < w.size(); i++) {
+        nowa_tablica[i] = w[i]; 
+    }
+    nowa_tablica[w.size()] = nowy_elem;
+
+    delete[] w.wektor;
+    w.wektor = nowa_tablica;
+    w.rozmiar += 1;
+
+    return is;
+}
 
 
 
