@@ -48,7 +48,7 @@ void Zadanie4() {
 
     for ( i = rozmiar; i < nowyRozmiar; i++) {
 
-        tablica[i] = 15 - (i - rozmiar);
+        tablica[i] = 100 - i * 10;
 
     }
 

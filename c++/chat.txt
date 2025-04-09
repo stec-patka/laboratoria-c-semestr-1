@@ -1,0 +1,179 @@
+// Zadanie 1: Konstruktor domyślny i parametryzowany
+class Samochod {
+std::string marka;
+std::string model;
+int rok;
+
+public:
+    // konstruktor domyślny
+    Samochod() : marka("brak"), model("brak"), rok(0) {}
+
+    // konstruktor z parametrami
+    Samochod(std::string brand="brak", std::string m="brak", int year=0) : marka(brand), model(m), rok(year) {}
+
+    // konstruktor kopiujący
+    Samochod(const Samochod &drugi) : marka(drugi.marka), model(drugi.model), rok(drugi.rok) {
+        std::cout << "Kopiuję samochód..." << std::endl;
+    }
+};
+
+
+// Zadanie 3: Konstruktor delegujący
+class Punkt {
+    double x, y, z;
+
+public:
+    Punkt(double x_, double y_, double z_) : x(x_), y(y_), z(z_) {}
+
+    // konstruktor delegujący Punkt(double x, double y)
+    Punkt(double x, double y) : Punkt(x, y, 0.0) {}
+
+    // operator==
+    bool operator==(const Punkt& other) {
+        return x == other.x && y == other.y && z == other.z;
+    }
+
+    // operator!=
+    bool operator!=(const Punkt& other) {
+        return !(*this == other);
+    }
+};
+
+
+// Zadanie 4: Konstruktor z listą inicjalizacyjną
+class Osoba {
+    std::string imie;
+    std::string nazwisko;
+    int wiek;
+
+public:
+    Osoba(std::string name, std::string surname, int age) : imie(name), nazwisko(surname), wiek(age) {}
+};
+
+
+// Zadanie 5: Konstruktor z initializer_list
+class Tablica {
+    int* tab;
+    int size;
+
+public:
+    Tablica(const std::initializer_list<int>& lista) {
+        tab = new int[lista.size()];
+        size = lista.size();
+        int i = 0;
+        for (auto el : lista) {
+            tab[i++] = el;
+        }
+    }
+
+    // konstruktor przenoszący
+    Tablica(Tablica&& other) {
+        tab = other.tab;
+        size = other.size;
+        other.tab = nullptr;
+        other.size = 0;
+    }
+
+    // operator przenoszący przypisania
+    Tablica& operator=(Tablica&& other) {
+        if (this != &other) {
+            delete[] tab;
+            tab = other.tab;
+            size = other.size;
+            other.tab = nullptr;
+            other.size = 0;
+        }
+        return *this;
+    }
+
+    ~Tablica() {
+        delete[] tab;
+    }
+
+    Tablica& operator=(const Tablica& other) {
+        if (this == &other) return *this;
+        delete[] tab;
+        size = other.size;
+        tab = new int[size];
+        for (int i = 0; i < size; i++) {
+            tab[i] = other.tab[i];
+        }
+        return *this;
+    }
+};
+
+
+// Zadanie 6: Operator + w klasie Para
+class Para {
+    int fst, snd;
+
+public:
+    Para(int a, int b) : fst(a), snd(b) {}
+
+    Para operator+(const Para& p2) {
+        return Para(fst + p2.fst, snd + p2.snd);
+    }
+
+    int& operator[](int idx) {
+        if (idx == 0) return fst;
+        else return snd;
+    }
+
+    friend std::ostream& operator<<(std::ostream& COUT, const Para& para) {
+        COUT << "Para: (" << para.fst << ", " << para.snd << ")";
+        return COUT;
+    }
+
+    // konstruktor konwertujący z int
+    Para(int x) : fst(x), snd(x) {}
+
+    // operator konwersji do string
+    operator std::string() const {
+        return std::to_string(fst) + "," + std::to_string(snd);
+    }
+};
+
+
+// Zadanie 9: Operator ()
+class Kwadrat {
+    double bok;
+
+public:
+    Kwadrat(double b) : bok(b) {}
+
+    double operator()() {
+        return bok * bok;
+    }
+
+    // prefiksowy ++
+    Kwadrat& operator++() {
+        ++bok;
+        return *this;
+    }
+
+    // postfiksowy ++
+    Kwadrat operator++(int) {
+        Kwadrat temp = *this;
+        ++bok;
+        return temp;
+    }
+};
+
+
+// Zadanie 10: Operator konwersji
+class Dlugosc {
+    double metry;
+
+public:
+    Dlugosc(double m) : metry(m) {}
+
+    operator int() const {
+        return static_cast<int>(metry);
+    }
+};
+
+
+int main() {
+    // Możesz testować tutaj każdą z klas
+    return 0;
+}

@@ -34,22 +34,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="zadanie1.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="zadanie1.h" />
-		<Unit filename="zadanie2.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="zadanie2.h" />
-		<Unit filename="zadanie3.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="zadanie3.h" />
-		<Unit filename="zadanie4.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="zadanie4.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

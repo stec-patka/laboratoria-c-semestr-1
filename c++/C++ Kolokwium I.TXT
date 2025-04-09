@@ -1,0 +1,294 @@
+1. 1 Napisz jedną linię kodu zawierającą pętlę, która spowoduje, że poniższy kod wypisze wszystkie wartości tablicy tab:
+vector<int> tab {1,2,3,4,5};
+<< TU BĘDZIE WKLEJONY TWÓJ KOD >> for (auto it = tab.begin(); it != tab.end(); ++it)
+   {
+    std::cout << *it  << ' ';
+   }
+Wypisanie będzie w postaci:
+1 2 3 4 5
+
+----------------------------------------------------------
+2. Dana jest klasa Punkt opisujący punkt w przestrzeni 3D, która posiada konstruktor:
+Punkt(double x, double y, double z);
+Napisz, jako konstruktor delegujący,  drugi konstruktor tej klasy, który utworzy punkt  w przestrzeni 2D:
+Punkt(double x, double y);
+ustawiając trzecią współrzędną na 0.0
+UWAGA: Klasa jest już napisana, brakuje tylko definicji drugiego konstruktora i tylko ten konstruktor należy napisać.
+
+Punkt(double x, double y) : Punkt(x, y, 0.0){}
+
+----------------------------------------------------------
+3. Napisz funkcję do_kwadratu(), która otrzyma liczbę całkowitą i zwróci jej kwadrat
+
+int do_kwadratu(int x){
+	return x*x;
+}
+
+----------------------------------------------------------
+4. Napisz jedną linię kodu, która spowoduje, że  wypisana zostanie wartość zmiennych x i y:
+int x, y;
+std::cin >> x;
+std::cin >> y;
+<< TU BĘDZIE WKLEJONY TWÓJ KOD >> std::cout<<x<<" "<<y<<;
+Np dla x=3 i y=4 wypisanie ma być w postaci:
+3 4
+
+----------------------------------------------------------
+5. Napisz funkcję swap(), która otrzymuje dwie zmienne całkowite (poprzez referencję) i sprawia, że zmienne wymieniają się wartościami.
+Czyli wywołanie:
+int x=5, y=7;
+swap(x,y);
+cout << x << " " <<y;
+spowoduje wypisanie:
+7 5
+
+int swap(int &x_r, int &y_r){
+	int temp=x_r;
+	x_r=y_r;
+	y_r=temp;
+}
+
+----------------------------------------------------------
+6. Napisz klasę MojaKlasa która będzie zliczała powstające obiekty tej klasy. Niech klasa posiada metodę ile_obiektów(), która zwróci aktualną 
+liczbę stworzonych do tej pory obiektów tej klasy. Licznik zliczający obiekty, o nazwie licznik_obiektów ma być prywatny.
+
+class Klasa {
+static int licznik_obiektów;
+public:
+ Klasa() {
+_LicznikObiektow++;
+}
+ ~Klasa() {
+_LicznikObiektow--;
+}
+static int  ile_obiektów() {
+ return _LicznikObiektow;
+ }
+};
+
+----------------------------------------------------------
+7. Dana jest klasa Para, która posiada dwa prywatne pola z wartościami całkowitymi: fst i snd .  Zdefiniuj operator <<  który wypisze wartości pól fst i snd.
+Czyli mając obiekt para o wartościach {1,2} instrukcja
+std::cout << para;
+powinna wypisać:
+1 2
+
+friend std::ostream& operator<<(std::osteram &COUT, const Para& para){
+	COUT << para.fst << " " << para.snd <<std::endl;
+	return COUT;
+}
+
+ UWAGA - po wypisaniu pól ma nastąpić przejście do nowej linii.
+Definicja klasy jest już napisana - należy napisać tylko zadany operator. 
+
+
+----------------------------------------------------------
+8. Napisz jedną linię kodu zawierającą pętlę, która spowoduje, że poniższy kod wpisze do tablicy  tab same jedynki:
+vector<int> tab(5);
+<< TU BĘDZIE WKLEJONY TWÓJ KOD >> for(auto& el : tab)
+ {
+   el = 1;
+ }
+Wypisanie tab powinno dać:
+1 1 1 1 1
+
+
+----------------------------------------------------------
+9. Napisz funkcję maximum(), która otrzymuje tablicę w postaci vector<int>, a zwraca największą wartość tej tablicy
+
+int maximum(const vector<int>& vec){
+	int max=vec[0];
+	for(int elem : vec){
+	    if(elem>max){
+		elem=max;
+		}
+	}
+     return max;
+}
+
+
+----------------------------------------------------------
+10. Dana jest klasa Para, która posiada dwa prywatne pola z wartościami całkowitymi: fst i snd .  Zdefiniuj  operator +, który zsumuje  dwa obiekty tej 
+klasy. Wynikiem sumy ma być obiekt klasy Para, którego pole fst jest sumą ich pól fst, a pole snd -  sumą pól snd . Operator ma być metodą (funkcją składową) klasy.
+ Definicja klasy jest już napisana - należy dopisać tylko zadany operator. W rozwiązaniu nie ma być użyte słowo const (to dla uproszczenia).
+
+Para operator+(Para druga){
+	Para suma(0,0);
+	suma.fst= this->fst+ druga.fst;
+	suma.snd= this->snd+ druga.snd;
+   return suma;
+
+}
+
+
+----------------------------------------------------------
+11. Dana jest klasa:
+class Tablica
+{
+    int *tab;
+    int size;
+public:
+    Tablica (const std::initializer_list<int>& lista)
+        {
+        tab = new int[lista.size()];
+        size = lista.size();
+        int i=0;
+        for(auto el: lista)
+              tab[i++] = el;
+        }
+};
+Dopisz konstruktor kopiujący do tej klasy.
+
+Tablica(const Tablica& tab2){
+    tab=new int[size];
+    size=tab2.size;
+   for(int i =0; i<size;i++){
+       tab[i]=tab2.tab[i];
+}
+
+
+UWAGA: Klasa jest już napisana, zawiera deklarację  konstruktora kopiującego, brakuje tylko definicji tego konstruktora i tu należy ją napisać.
+
+----------------------------------------------------------
+12. Napisz jedną linię kodu zawierającą pętlę, która spowoduje, że poniższy kod wypisze wszystkie wartości tablicy tab:
+vector<int> tab {1,2,3,4,5};
+<< TU BĘDZIE WKLEJONY TWÓJ KOD >> for(const auto& el : tab)
+ {
+   std::cout << el  << ' ';
+ }
+Wypisanie będzie w postaci:
+1 2 3 4 5
+
+----------------------------------------------------------
+13. Napisz funkcję minimum(), która otrzymuje tablicę w postaci vector<int> a zwraca najmniejszą wartość tej tablicy.
+
+int minimum(const vector<int>& vec){
+	int min=vec[0];
+	for(int elem : vec){
+	    if(elem<min){
+		elem=min;
+		}
+	}
+     return min;
+}
+
+----------------------------------------------------------
+14. Napisz funkcję rec(), która otrzymuje zmienną typu double (poprzez referencję)  i odwraca ją (np z 2 robi 0.5, z 0.25 robi 4). Jeżeli wartość zmiennej wynosi 0 to nie powinna ona ulec zmianie.
+Czyli wywołanie:
+double x=2;
+rec(x);
+cout << x;
+spowoduje wypisanie:
+0.5 
+
+void rec(double &zmienna){
+	if(zmienna!=0){
+	 zmienna=1.0/zmienna;
+	}
+}
+
+----------------------------------------------------------
+15. Napisz funkcję suma(), która otrzymuje tablicę w postaci vector<int> a zwraca sumę elementów tej tablicy.
+
+int suma(vector<int>& vec){
+	int suma=0;
+	for(const auto& elem : vec){
+	  suma+=elem;
+	}
+	return suma;
+}
+
+----------------------------------------------------------
+16. Dana jest klasa Para, która posiada dwa prywatne pola z wartościami całkowitymi: fst i snd .  Dodaj do klasy operator [  ], który dla [0] da 
+dostęp do pola fst, a dla [1] dostęp do snd. Operator ma być metodą (funkcją składową) klasy. 
+Definicja klasy jest już napisana - należy dopisać tylko zadany operator.
+
+int &operator[](int idx){
+	if(idx == 0){
+	  return fst;
+	}
+	else if(idx==1){
+	  return snd;
+	}
+}
+
+----------------------------------------------------------
+17. Napisz klasę Punkt, której obiekt reprezentuje punkt w przestrzeni 3D. Niech klasa posiada trzy publiczne składowe rzeczywiste: x, y i z_
+W klasie stwórz konstruktor, który ma 3 parametry odpowiadające powyższym trzem składowym (czyli wywołanie Punkt(1,2,3) ma utworzyć obiekt, 
+którego wartość składowej x wyniesie 1, składowej y wyniesie 2 a składowej z_ wyniesie 3. Napisz ten konstruktor tak, aby był także konstruktorem 
+domyślnym, ustawiającym wszystkie trzy składowe na 0.
+
+Class Punkt{
+double x, y, z;
+
+public:
+	Punkt(double x_=0.0, double y_=0.0, double z_=0.0){
+	   x=x_;
+	   y=y_;
+	   z=z_;
+	}
+      
+      lub tak:
+      Punkt(double x_, double y_, double z_) : x(x_), y(y_), z(z_) {}
+      
+};
+
+
+------------------------------------------------------
+18. Napisz funkcję inc(), która otrzymuje zmienną całkowitą (poprzez referencję) oraz wartość i powiększa zmienną o tą wartość.
+Czyli wywołanie:
+int x=5;
+inc(x,3);
+cout << x;
+spowoduje wypisanie:
+8
+
+void inc(int &a, int wartosc){
+	a=a+wartosc;
+}
+
+----------------------------------------------------------
+19. Napisz jedną linię kodu zawierającą pętlę, która spowoduje, że poniższy kod wypisze wszystkie wartości tablicy tab:
+vector<int> tab {1,2,3,4,5};
+<< TU BĘDZIE WKLEJONY TWÓJ KOD >> for (size_t i = 0; i < tab.size(); ++i)
+  {
+     std::cout << tab[i]  << ' ';
+  }
+Wypisanie będzie w postaci:
+1 2 3 4 5
+UWAGA: Wklejany kod ma także działać dla tablic o innym rozmiarze. np. dla:
+vector<int> tab {1,2,3};
+Powinien wypisać:
+1 2 3
+
+
+
+
+
+Class Punkt{
+public:
+double x,y,z;
+
+Punkt(double x_, double y_=0.0, double z_){  //domyslny   
+x=x_;
+y=y_;
+z=z_;
+}
+
+Punkt(double x_, double y_, double z_) : x(x_), y(y_), z(z_) {} //domyslny inaczej z lista inizjalizujaa
+
+
+Punkt(double x_, double y_) : Punkt(x,y,0.0 {}  //deleagujacy to po prostu wysluguje sie innym konstruktorem
+
+Punkt(const Punkt &kopiowany){
+x=kopiowany.x;
+y=kopiowany.y;
+z=kopiowany.z;
+
+
+
+
+
+
+
+
